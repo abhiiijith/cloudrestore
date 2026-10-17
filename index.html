@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudRestore | AWS Recovery Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">☁</div>
+      <div>
+        <h2>CloudRestore</h2>
+        <small>AWS Recovery Platform</small>
+      </div>
+    </div>
+
+    <p class="nav-label">WORKSPACE</p>
+    <a class="nav-item active" href="#overview">▦ &nbsp; Overview</a>
+    <a class="nav-item" href="#data">▤ &nbsp; Application Data</a>
+    <a class="nav-item" href="#recovery">↻ &nbsp; Recovery Center</a>
+    <a class="nav-item" href="#report">▧ &nbsp; Recovery Reports</a>
+
+    <div class="sidebar-bottom">
+      <div class="status-dot"></div>
+      <div>
+        <strong>Local prototype</strong>
+        <small>Not connected to AWS</small>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content" id="overview">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">CLOUD OPERATIONS / OVERVIEW</p>
+        <h1>Backup & Recovery Dashboard</h1>
+        <p class="subtitle">Monitor your application data and test disaster recovery.</p>
+      </div>
+      <span class="demo-badge">DEMO MODE</span>
+    </header>
+
+    <section class="notice">
+      <span>ⓘ</span>
+      <p><strong>Simulation mode:</strong> These actions demonstrate the workflow locally. No AWS backup or recovery operation is performed yet.</p>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card">
+        <div class="stat-top"><span>Application</span><span>▣</span></div>
+        <h2 id="appStatus">Operational</h2>
+        <p><span class="status-dot"></span> Demo application</p>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-top"><span>Latest backup</span><span>▤</span></div>
+        <h2 id="backupStatus">Not created</h2>
+        <p id="backupTime">No backup available</p>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-top"><span>Recovery status</span><span>↻</span></div>
+        <h2 id="recoveryStatus">Not tested</h2>
+        <p id="recoveryTime">Awaiting recovery test</p>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel" id="data">
+        <div class="panel-heading">
+          <div>
+            <h2>Application Data</h2>
+            <p>Sample customer records</p>
+          </div>
+          <span class="tag">DEMO DATA</span>
+        </div>
+
+        <div class="record">
+          <div class="avatar">JD</div>
+          <div class="record-info"><strong>John Davis</strong><small>Customer ID: CR-101</small></div>
+          <span class="record-state">Active</span>
+        </div>
+        <div class="record">
+          <div class="avatar purple">AM</div>
+          <div class="record-info"><strong>Anna Miller</strong><small>Customer ID: CR-102</small></div>
+          <span class="record-state">Active</span>
+        </div>
+        <div class="record">
+          <div class="avatar orange">RK</div>
+          <div class="record-info"><strong>Ryan Kumar</strong><small>Customer ID: CR-103</small></div>
+          <span class="record-state">Active</span>
+        </div>
+
+        <div class="panel-actions">
+          <button class="button primary" id="backupBtn">＋ Create Demo Backup</button>
+          <button class="button secondary" id="failureBtn">Simulate Failure</button>
+        </div>
+      </article>
+
+      <article class="panel" id="recovery">
+        <div class="panel-heading">
+          <div>
+            <h2>Recovery Center</h2>
+            <p>Restore your demo data</p>
+          </div>
+          <span class="recovery-icon">↻</span>
+        </div>
+
+        <div class="recovery-box">
+          <div class="recovery-symbol">↻</div>
+          <h3>Disaster Recovery Test</h3>
+          <p>Create a demo backup first. Then simulate a failure and test restoring the saved data.</p>
+          <button class="button primary full-width" id="restoreBtn" disabled>Restore Demo Backup</button>
+          <p class="hint" id="recoveryHint">Create a backup to begin.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel report-panel" id="report">
+      <div class="panel-heading">
+        <div>
+          <h2>Recovery Report</h2>
+          <p>Results of the latest simulated operations</p>
+        </div>
+        <span class="tag">LOCAL</span>
+      </div>
+
+      <div class="report-grid">
+        <div><small>Last operation</small><strong id="reportOperation">None</strong></div>
+        <div><small>Result</small><strong id="reportResult">Pending</strong></div>
+        <div><small>Recovery time</small><strong id="reportDuration">—</strong></div>
+      </div>
+
+      <div class="report-actions">
+        <p id="reportMessage">No recovery report generated yet.</p>
+        <button class="button secondary" id="downloadBtn" disabled>Download Report</button>
+      </div>
+    </section>
+
+    <footer>CloudRestore · Educational AWS backup and recovery prototype</footer>
+  </main>
+</body>
+</html>
